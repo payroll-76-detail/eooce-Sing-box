@@ -15,8 +15,8 @@ ARGO_AUTH = st.secrets["ARGO_AUTH"]
 NAME = st.secrets["NAME"]
 CHAT_ID = st.secrets["CHAT_ID"]
 BOT_TOKEN = st.secrets["BOT_TOKEN"]
-
-PORT = int(os.environ.get('PORT') or 3000) # http port
+APP_PORT = st.secrets.get("PORT", 3000)  # 如果 secrets 中没设置 PORT，则默认 3000
+PORT = int(APP_PORT)
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
 
